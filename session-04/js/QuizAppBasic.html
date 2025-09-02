@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Quiz App</title>
+  </head>
+  <body>
+    <div id="quiz-container">
+      <h2 id="question">Question will appear here</h2>
+      <input id="answer" placeholder="Type your answer" />
+      <button id="submit">Submit</button>
+      <p id="feedback"></p>
+      <p id="score">Score: 0</p>
+    </div>
+    <script>
+      let questions = [
+        "What is the capital of France?",
+        "What is 2 + 2?",
+        "What color is the sky?",
+      ];
+
+      let answers = ["Paris", "4", "Blue"];
+
+      let score = 0;
+      let currentQuestion = 0;
+
+      let questionEl = document.getElementById("question");
+      let answerEl = document.getElementById("answer");
+      let submitBtn = document.getElementById("submit");
+      let feedbackEl = document.getElementById("feedback");
+      let scoreEl = document.getElementById("score");
+
+      function showQuestion() {
+        questionEl.textContent = questions[currentQuestion];
+        answerEl.value = "";
+      }
+
+      submitBtn.addEventListener("click", function () {
+        let userAnswer = answerEl.value;
+
+        if (
+          userAnswer.toLowerCase() === answers[currentQuestion].toLowerCase()
+        ) {
+          feedbackEl.textContent = "✅ Correct!";
+          score++;
+        } else {
+          feedbackEl.textContent =
+            "❌ Wrong! The correct answer is " + answers[currentQuestion];
+        }
+
+        scoreEl.textContent = "Score: " + score;
+
+        currentQuestion++;
+
+        if (currentQuestion < questions.length) {
+          showQuestion();
+        } else {
+          questionEl.textContent = "Quiz Finished!";
+          answerEl.style.display = "none";
+          submitBtn.style.display = "none";
+        }
+      });
+      showQuestion();
+    </script>
+  </body>
+</html>
