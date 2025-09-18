@@ -1,0 +1,25 @@
+
+const subjects = [
+  "A little cat",
+  "The big dog",
+  "My friend",
+  "A fluffy bunny",
+  "The red car"
+];
+
+
+const verbs = [
+  "is chasing",
+  "loves to play with",
+  "is running near",
+  "quickly jumped over",
+  "happily ate"
+];
+
+const objects = [
+  "the blue ball.",
+  "some fresh carrots.",
+  "a bouncy toy.",
+  "the funny squirrel.",
+  "a big green park."
+];
