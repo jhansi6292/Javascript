@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      
+      function generateArray(arrayLength) {
+        let newRandomArray = [];
+        while (newRandomArray.length < arrayLength) {
+          x = Math.floor(Math.random() * arrayLength);
+          if (!newRandomArray.includes(x)) {
+            newRandomArray.push(x);
+          }
+        }
+        return newRandomArray;
+      }
+      let questions = [
+        "What is the capital of France?",
+        "What is 2 + 2?",
+        "What color is the sky?",
+      ];
+
+      let answers = ["Paris", "4", "Blue"];
+
+      let score = 0;
+      let randomArray = generateArray(questions.length);
+      randomArray.forEach((i) => {
+        let userAnswer = prompt(questions[i]);
+
+        if (userAnswer.toLowerCase() === answers[i].toLowerCase()) {
+          console.log("Correct!");
+          score++;
+        } else {
+          console.log("Wrong! The correct answer is " + answers[i]);
+        }
+      });
+
+      console.log("Your final score is: " + score);
+      alert("Your final score is: " + score);
+    </script>
+  </head>
+  <body></body>
+</html>
